@@ -1,0 +1,80 @@
+TABLE.generique {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 1em; PADDING-BOTTOM: 0px; MARGIN: 0px auto 1em; BORDER: 0 1px solid; PADDING-TOP: 0px; TEXT-ALIGN: left; border-spacing: 0px; empty-cells: show
+}
+
+TABLE.generique CAPTION {
+	FONT-WEIGHT: bold; MARGIN-BOTTOM: 0.2em; TEXT-ALIGN: center; caption-side: top
+}
+
+TABLE.generique TD {
+	BORDER-RIGHT: #FFFFFF 2px solid; PADDING-RIGHT: 2px; PADDING-LEFT: 2px; PADDING-BOTTOM: 2px; VERTICAL-ALIGN: top; PADDING-TOP: 2px; BORDER-BOTTOM: #FFFFFF 2px solid; TEXT-ALIGN: left
+}
+TABLE.generique TH {
+	BORDER-RIGHT: #FFFFFF 2px solid; PADDING-RIGHT: 2px; BORDER-TOP: #014e82 2px solid; PADDING-LEFT: 2px; FONT-WEIGHT: bold; BACKGROUND: url(form_pregunta_04.gif) #014e82 no-repeat; PADDING-BOTTOM: 2px; OVERFLOW: hidden; COLOR: #FFFFFF; LINE-HEIGHT: 1.2em; PADDING-TOP: 2px; BORDER-BOTTOM: #FFFFFF 2px solid; LETTER-SPACING: 2px; TEXT-ALIGN: left
+}
+TABLE.generique TH A { //COLOR DEL TEXTO DE LA TABLA
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #FFFFFF; PADDING-TOP: 0px; TEXT-DECORATION: none; outline: none
+}
+TABLE.generique TH A:unknown {
+	COLOR: #656565
+}
+TABLE.generique TD A:unknown {
+	TEXT-DECORATION: underline
+}
+TABLE.generique TH SPAN {
+	COLOR: #656565
+}
+TABLE.generique TH.centered {
+	TEXT-ALIGN: center
+}
+TABLE.generique TD.centered {
+	TEXT-ALIGN: center;
+	font-weight: bold
+}
+TABLE.generique TD.alternative {
+	BACKGROUND: #DDDDDD
+}
+TABLE.generique TR {
+	BACKGROUND: #DDDDDD
+}
+TABLE.generique TR.alternative {
+	BACKGROUND: #BBBBBB
+}
+TH.sortable {
+	CURSOR: pointer; COLOR: #00F000; //656565
+}
+TH.sortable-date {
+	CURSOR: pointer; COLOR: #00F000}
+TH.sortable-numeric {
+	CURSOR: pointer; COLOR: #00F000}
+TH.sortable-currency {
+	CURSOR: pointer; COLOR: #00F000}
+	
+TABLE.generique A {
+	COLOR: #OOF000
+}
+TH.sort-active {
+	COLOR: #fee000! important
+}
+TABLE.generique TH.sort-active {
+	COLOR: #fee000! important
+}
+
+H1#frequency-decoder {
+	MARGIN: 3em auto 2em
+}
+H2 {
+	TEXT-ALIGN: center
+}
+P {
+	TEXT-ALIGN: left
+}
+CODE {
+	DISPLAY: inline
+}
+DIV {
+	MARGIN: 0px auto; WIDTH: 60%; TEXT-ALIGN: left
+}
+#halfsize {
+	WIDTH: 90%
+}

@@ -1,0 +1,28 @@
+<?php
+  require_once("includes/config.inc.php");
+?>
+<html>
+<head
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SII  Desarrollo Academico</title>
+
+<link rel="stylesheet" type="text/css" href="css/tec_estilo_encabezado.css" />
+<script type="text/javascript" src="js/funciones.js"></script>
+</head>
+<body>
+<div id="masthead">
+<center>
+<table width="900" align="center">  
+  	<tr>
+      <td><img src="img/sep.jpg"  width="200" height="100" /> </td>
+	  	<td>
+			<font class="titulo1">SISTEMA INTEGRAL DE INFORMACIÓN</font>
+			<br>
+			<font class="titulo2">INSTITUTO TECNOLOGICO DE IGUALA</font>
+			<br>
+			<font class="titulo2">PORTAL DE DESARROLLO ACADEMICO</font>
+      </td>
+	  <td><img src="img/logodgest.jpg"  width="200" height="100" /> </td>
+  	</tr>
+  </table>
+</center>

@@ -1,0 +1,4 @@
+[26-Apr-2019 17:48:02 America/Mexico_City] PHP Warning:  require_once(../../config.inc.php): failed to open stream: No such file or directory in /home/desarr41/public_html/js/js/index.php on line 3
+[26-Apr-2019 17:48:02 America/Mexico_City] PHP Fatal error:  require_once(): Failed opening required '../../config.inc.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/desarr41/public_html/js/js/index.php on line 3
+[26-Apr-2019 17:51:39 America/Mexico_City] PHP Warning:  require_once(../../config.inc.php): failed to open stream: No such file or directory in /home/desarr41/public_html/js/js/index.php on line 3
+[26-Apr-2019 17:51:39 America/Mexico_City] PHP Fatal error:  require_once(): Failed opening required '../../config.inc.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/desarr41/public_html/js/js/index.php on line 3

@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #F2F5FE url("../imagenes/fondo.gif") 0 0 repeat-x;
+  font: 70%/160% "verdana", sans-serif;
+  color: #192666;
+}
+
+a {
+  color:#192666;
+}
+a:hover {
+  color:#4F6AD7;
+}
+
+p {
+  margin: 1em 0;
+  padding: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 1em 0;
+  padding:0;
+}
+
+h1 {
+  font-size: 260%;
+  font-family: "georgia", serif;
+  font-weight: normal;
+}
+
+h2 {
+  font-size:180%;
+  font-family: "georgia", serif;
+  font-weight:normal;
+}
+
+h3 {
+  font-size:120%;
+  font-weight:bold;
+}
+
+ul, ol {
+  margin: 1em 0 1em 2em;
+  padding:0;
+}
+
+/* ---- Layout ------------------------------------------------------------- */
+
+#contenedor {
+  width:770px;
+  margin: 50px auto 0 auto;
+}

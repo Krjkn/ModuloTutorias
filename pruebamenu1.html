@@ -1,0 +1,196 @@
+<style type="text/css">
+
+
+/*MENU ARRIBA */
+
+#menu01 {
+padding:25px;
+margin: 25px;
+
+}
+  /* el menú en si mismo */
+  .mi-menu  {
+    border-radius: 5px;
+    list-style-type: none;/*
+    margin: 0 auto 0 auto; /* si queremos centrarlo */
+    padding: 0;
+    /* la altura y su ancho dependerán de los textos */
+    height: 40px; 
+
+    /* el color de fondo */
+    background: red;
+    background: -moz-linear-gradient(#0B3B0B,black);
+    background: -webkit-linear-gradient(#0B3B0B,black);
+    background: -o-linear-gradient(#0B3B0B,black);
+    background: -ms-linear-gradient(#0B3B0B,black);
+    background: linear-gradient(#0B3B0B,black);
+  }
+
+  /* si es necesario, evitamos que Blogger de problemas con los saltos de línea cuando escribimos el HTML */
+  .mi-menu  br { display:none; }
+
+  /* cada item del menu */
+  .mi-menu  li {
+    display: block;
+    float: left; /* la lista se ve horizontal */
+    height: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  .mi-menu li a {
+    border-left: 1px solid #000;
+    border-right: 1px solid #666;
+			text-shadow: white 3px 3px 5px;
+    color: white;
+    display: block;
+    font-family: Tahoma;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 28px;
+    padding: 0 14px;
+    margin: 6px 0;
+    text-decoration: none;
+    /* animamos el cambio de color de los textos */
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+  }
+  /* eliminamos los bordes del primer y el último */
+  .mi-menu li:first-child a { border-left: none; }
+  .mi-menu li:last-child a{ border-right: none; }
+  /* efecto hover cambia el color */
+  .mi-menu li:hover > a { color: Crimson; }
+
+  /* los submenús */
+  .mi-menu ul {
+    border-radius: 0 0 5px 5px;
+    left: 0;
+    margin: 0;
+    opacity: 0; /* no son visibles */
+    position: absolute;
+    top: 40px; /* se ubican debajo del enlace principal */
+    /* el color de fondo */
+    background: green;
+    background: -moz-linear-gradient(blue,green);
+    background: -webkit-linear-gradient(blue,green);
+    background: -o-linear-gradient(blue,green);
+    background: -ms-linear-gradient(blue,green);
+    background: linear-gradient(blue,green);
+    /* animamos su visibildiad */
+    -moz-transition: opacity .25s ease .1s;
+    -webkit-transition: opacity .25s ease .1s;
+    -o-transition: opacity .25s ease .1s;
+    -ms-transition: opacity .25s ease .1s;
+    transition: opacity .25s ease .1s;
+  }
+
+  /* son visibes al poner el cursor encima */
+  .mi-menu li:hover > ul { opacity: 1; }
+
+   /* cada un ode los items de los submenús */
+  .mi-menu ul li {
+    height: 0; /* no son visibles */
+    overflow: hidden;
+    padding: 0;
+    /* animamos su visibildiad */
+    -moz-transition: height .25s ease .1s;
+    -webkit-transition: height .25s ease .1s;
+    -o-transition: height .25s ease .1s;
+    -ms-transition: height .25s ease .1s;
+    transition: height .25s ease .1s;
+  }
+  .mi-menu li:hover > ul li {
+    height: 36px; /* los mostramos */
+    overflow: visible;
+    padding: 0;
+  }
+  .mi-menu ul li a {
+    border: none;
+    border-bottom: 1px solid #111;
+    margin: 0;
+    /* el ancho dependerá de los textos a utilizar */
+    padding: 5px 20px;
+    width: 100px;
+  }
+  /* el último n otiene un borde */
+  .mi-menu ul li:last-child a { border: none; }
+
+  .mi-menu ul:last-child{
+    border-radius: 0 0 5px 5px;
+    left: 0;
+    margin: 0;
+    opacity: 0; /* no son visibles */
+    position: absolute;
+    top: 40px; /* se ubican debajo del enlace principal */
+    /* el color de fondo */
+    background: green;
+    background: -moz-linear-gradient(#0B3B0B,black);
+    background: -webkit-linear-gradient(#0B3B0B,black);
+    background: -o-linear-gradient(#0B3B0B,black);
+    background: -ms-linear-gradient(#0B3B0B,black);
+    background: linear-gradient(#0B3B0B,black);
+    /* animamos su visibildiad */
+    -moz-transition: opacity .25s ease .1s;
+    -webkit-transition: opacity .25s ease .1s;
+    -o-transition: opacity .25s ease .1s;
+    -ms-transition: opacity .25s ease .1s;
+    transition: opacity .25s ease .1s;
+  }
+  
+  /* son visibes al poner el cursor encima */
+  .mi-menu li:hover > ul:last-child { opacity: 1; }
+
+   /* cada un ode los items de los submenús */
+  .mi-menu ul:last-child li {
+    height: 0; /* no son visibles */
+    overflow: hidden;
+    padding: 0;
+    /* animamos su visibildiad */
+    -moz-transition: height .25s ease .1s;
+    -webkit-transition: height .25s ease .1s;
+    -o-transition: height .25s ease .1s;
+    -ms-transition: height .25s ease .1s;
+    transition: height .25s ease .1s;
+  }
+  .mi-menu li:hover > ul:last-child li {
+    height: 40px; /* los mostramos */
+    overflow: visible;
+    padding: 0;
+  }
+  .mi-menu ul:last-child li a {
+    border: none;
+    border-bottom: none;
+    margin: 0;
+    /* el ancho dependerá de los textos a utilizar */
+    padding: 5px 20px;
+    width: 100px;
+  }
+  ul.menu_sem
+  {
+	padding: 0 0 0 0;
+	width: 120px;
+}
+ul.menu_5
+{
+	padding:0 0 0 0;
+	width: 130px;
+	
+}
+ul.menu_6
+{
+	padding: 0 0 0 0;
+	width: 120px;
+	
+}
+ul.menu_7
+{
+	padding: 0 0 0 0;
+	width: 125px;
+	
+}
+
+/* FIN MENU ARRIBA */

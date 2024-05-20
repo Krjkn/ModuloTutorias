@@ -1,0 +1,90 @@
+<?php 
+require_once("includes/config.inc.php");
+require_once("fpdf/fpdf.php");
+require_once("pdf/funciones.pdf.php");
+$rfc = $_GET['periodo'];
+$no_de_control = $_GET['materia'];
+$periodo =  $_GET['peri'];
+	$pdf=new FPDF('P','mm','A4');
+	$pdf->Open();
+	$pdf->SetAutoPageBreak(0);
+	$qry_datos_grupo = "select departamento,CONCAT(nombre_empleado,' ',apellidos_empleado) as profesor,m.materia,g.grupo, 
+	nombre_completo_materia,alumnos_inscritos	from personal as p,materias as m,grupos as g 
+	where g.materia = m.materia and g.rfc = p.rfc and	p.rfc ='$rfc' and g.periodo = '$periodo'";
+	$res_grupos1 = ejecuta_consultaf($qry_datos_grupo);
+	while ($fila = $res_grupos1->fetch_assoc()) {
+		$nombre_completo_materia = $fila['nombre_completo_materia'];
+		$alumnos_inscritos 		 = $fila['alumnos_inscritos'];
+		$profesor		 		 = $fila['profesor'];
+		$materia		 		 = $fila['materia'];
+		$grupo		 		 	 = $fila['grupo'];
+	}
+	$semestre1 ='';$semestre1 ='';
+	$ano = substr($periodo,0,4);
+	$pe = substr($periodo,4,1);
+	if ($pe == '1'){$perico = 'Enero-Junio '.$ano; }
+	else {$perico = 'Agosto-Diciembre '.$ano; }
+	if  ($nombre_completo_materia == 'TUTORIAS II')
+		$semestre2 ='Segundo';
+	else 
+		$semestre2 ='Primero';
+	$qry_carr = "select calificacion,CONCAT(nombre_alumno,' ',apellido_paterno,' ',apellido_materno) as alumno,s.grupo,s.no_de_control,c.nombre_carrera,c.planestudios from seleccion_materias s,alumnos a,carreras c
+	where s.materia = '$materia' and s.grupo = '$grupo' and	s.periodo ='$periodo' and s.no_de_control = a.no_de_control and '$no_de_control' = a.no_de_control and a.carrera = c.carrera group by  c.nombre_carrera,c.planestudios";
+	$res_carr = ejecuta_consultaf($qry_carr);
+	$planestudios ='';$nombre_carrera = '';
+	while ($fila = $res_carr->fetch_assoc()) {
+		$nombre_carrera = $nombre_carrera.'   '.$fila['nombre_carrera'].',';
+		$planestudios = $planestudios.'   '.$fila['planestudios'].',';
+		$grupo1 = $fila['grupo'].',';
+		$alumno = $fila['alumno'];		$calificacion = $fila['calificacion'];
+	}	if ($calificacion == 4)		$desem = 'EXCELENTE';	if ($calificacion == 3)		$desem = 'NOTABLE';	if ($calificacion == 2)		$desem = 'BUENO';	if ($calificacion == 1)		$desem = 'SUFICIENTE';	if ($calificacion == 0)		$desem = 'NO APROBADO';
+	$pdf->AddPage();
+	$pdf->Image("img/sep2.jpg", 15, 6, 180, 33);
+		//$pdf->Image("img/firmaelisa.jpg", 120, 215, 50, 40);	//$pdf->Image("img/SELLO.png", 155, 190, 50, 40);
+	$pdf->SetFont('Helvetica','b','16');
+	$pdf->SetXY(45, 10);
+	$pdf->Cell(133, 10,"", 0, 2, 'C', 0);
+	$pdf->SetFont('Helvetica','b','10');
+	$pdf->SetXY(10,45);
+	$pdf->Cell(200, 5, utf8_decode("Constancia de Acreditación de Actividad Complementaría"), 0, 2, 'C');
+
+	$pdf->SetLineWidth(0.09);
+	$pdf->SetFont('Helvetica','','9');
+	
+	$pdf->SetXY(10,55);
+	$pdf->Cell(70,5,'ING. LEOBARDA ESPERANZA SOTO TABOADA',0,2,'L');
+	$pdf->Cell(70,5,'JEFA DEL DEPARTAMENTO DE SERVICIOS ESCOLARES',0,2,'L');
+	$pdf->Cell(70,5,'PRESENTE.',0,2,'L');
+	
+	$texto = "Quien suscribe ".$profesor." por este medio me permito hacer de su conocimiento que el estudiante ".$alumno." con número de control ".$no_de_control." de la carrera de ".$nombre_carrera." ha cumplido su actividad complementaria ".$nombre_completo_materia." con el nivel de desempeño ".$desem." y un valor numérico de ".$calificacion.", durante el periodo escolar ".$perico." con valor curricular de 1 (un) crédito." ;
+	$pdf->SetXY(15,90);
+	$pdf->SetFont('Helvetica','','11');
+	$pdf->MultiCell(170,5,utf8_decode($texto),0,'J');		$pdf->SetXY(15,125);	$pdf->MultiCell(170,5,utf8_decode('Se extiende la presente en la ciudad de Iguala Guerrero, el primer día del mes de diciembre del año 2023.'),0,'J');
+	$pdf->SetFont('Helvetica','','9');
+	
+	
+	
+	
+	$pdf->SetXY(75,180);
+	$pdf->Cell(70,5,'A T E N T A M E N T E',0,2,'C');
+	$pdf->Cell(70,5, utf8_decode('Excelencia en Educación Tecnológica'),0,2,'C');
+	$pdf->Cell(70,5,'"Tecnologia como Sinonimo de Independencia"',0,2,'C');
+	
+	$pdf->Line(10, 240,100,240);
+	$pdf->SetXY(10,240);
+	$pdf->Cell(70,5,utf8_decode($profesor),0,2,'C');
+	$pdf->Cell(70,5,'TUTOR(A)',0,2,'C');
+
+	$pdf->SetXY(145,230);
+	$pdf->Cell(20,5,'Vo. Bo.',0,2,'L');
+
+	
+	$pdf->Line(120, 240,190,240);
+	$pdf->SetXY(120,240);
+	$pdf->Cell(70,5,'Dra. ELISA TRUJILLO BELTRAN',0,2,'C');
+	$pdf->Cell(70,5,utf8_decode('JEFA DEL DEPARTAMENTO DE DESARROLLO ACADÉMICO'),0,2,'C');
+
+	
+    $pdf->Image("img/base.jpg", 20, 250, 180, 45);
+	$pdf->Output();
+?>
